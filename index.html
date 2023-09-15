@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi dan List Pendaftar</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <!-- Menambahkan Montserrat font-family  -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ganti warna latar belakang halaman */
+        body {
+            background-color: pink;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Ganti warna tombol dan elemen-elemen lainnya */
+        .btn-pink,
+        .table-white th,
+        .table-white td {
+            background-color: palevioletred !important;
+            border-color: white !important;
+            color: white !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Atur lebar maksimum untuk tabel */
+        #pendaftarTable {
+            max-width: 80%;
+            margin: 0 auto;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Atur margin dan padding untuk tombol tab dan tombol submit */
+        .tablink, .btn-pink {
+            margin: 10px;
+            padding: 10px 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Atur padding untuk judul dan paragraf */
+        h1, h2, p {
+            padding: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Atur tampilan tombol tab */
+        .tablink {
+            background-color: palevioletred;
+            color: white;
+            border-color: white;
+            cursor: pointer;
+        }
+
+        .tablink:hover {
+            background-color: darkred;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Registrasi dan List Pendaftar</h1>
+    <div class="tabs">
+        <button class="tablink btn btn-pink" onclick="openTab(event, 'Registrasi')">Registrasi</button>
+        <button class="tablink btn btn-pink" onclick="openTab(event, 'ListPendaftar')">List Pendaftar</button>
+    </div>
+
+    <!-- Tab Registrasi -->
+    <div id="Registrasi" class="tabcontent">
+        <h2>Form Registrasi</h2>
+        <div class="container">
+            <form id="registrationForm" class="form mx-auto">
+                <div class="form-group col-md-12 mb-4">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" name="nama" minlength="10" required class="form-control">
+                </div>
+
+                <div class="form-group col-md-12 mb-4">
+                    <label for="umur">Umur:</label>
+                    <input type="number" id="umur" name="umur" min="25" required class="form-control">
+                </div>
+
+                <div class="form-group col-md-12 mb-4">
+                    <label for="uangSangu">Uang Sangu (Rp.):</label>
+                    <input type="number" id="uangSangu" name="uangSangu" min="100000" max="1000000" required class="form-control">
+                </div>
+
+                <button type="button" onclick="submitForm()" class="btn btn-primary btn-pink">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- Tab List Pendaftar -->
+<div id="ListPendaftar" class="tabcontent">
+    <h2>List Pendaftar</h2>
+    <div class="table-responsive"> 
+        <table id="pendaftarTable" class="table table-bordered table-white">
+            <thead class="thead-pink"> 
+                <tr>
+                    <th>Nama</th>
+                    <th>Umur</th>
+                    <th>Uang Sangu (Rp.)</th>
+                </tr>
+            </thead>
+            <tbody id="resumeTableBody">
+                <!-- Data pendaftar akan ditampilkan di sini -->
+            </tbody>
+        </table>
+    </div>
+    <p>Rata-rata pendaftar memiliki uang saku sebesar <span id="averageUangSangu"></span> dengan rata-rata umur <span id="averageUmur"></span></p>
+</div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
