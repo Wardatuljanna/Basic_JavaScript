@@ -62,8 +62,8 @@
 <body>
     <h1>Registrasi dan List Pendaftar</h1>
     <div class="tabs">
-        <button class="tablink btn btn-pink" onclick="openTab(event, 'Registrasi')">Registrasi</button>
-        <button class="tablink btn btn-pink" onclick="openTab(event, 'ListPendaftar')">List Pendaftar</button>
+        <button class="tablink btn btn-pink" id="tabRegistrasi">Registrasi</button>
+        <button class="tablink btn btn-pink" id="tabListPendaftar">List Pendaftar</button>
     </div>
 
     <!-- Tab Registrasi -->
@@ -86,7 +86,7 @@
                     <input type="number" id="uangSangu" name="uangSangu" min="100000" max="1000000" required class="form-control">
                 </div>
 
-                <button type="button" onclick="submitForm()" class="btn btn-primary btn-pink">Submit</button>
+                <button type="button" id="submitBtn" class="btn btn-primary btn-pink">Submit</button>
             </form>
         </div>
     </div>
